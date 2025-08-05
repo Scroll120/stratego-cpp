@@ -4,6 +4,12 @@
 #include <vector>
 #include <SDL2/SDL_ttf.h>
 
+#ifdef TEST_FILES_PATH
+        std::string base_path = TEST_FILES_PATH;
+#else
+std::string base_path = "fonts/";
+#endif
+
 int main(int argc, char *argv[]) {
     SDL_Window *window = nullptr;
     SDL_Renderer *renderer = nullptr;
@@ -21,8 +27,8 @@ int main(int argc, char *argv[]) {
 
     SDL_CreateWindowAndRenderer(1280, 720, SDL_WINDOW_RESIZABLE, &window, &renderer);
 
-    TTF_Font *font = TTF_OpenFont("./fonts/arial.ttf", 16);
-    // TTF_Font *font = TTF_OpenFont("C:/Windows/Fonts/arial.ttf", 24);
+    const std::string font_path = base_path + "arial.ttf";
+    TTF_Font *font = TTF_OpenFont(font_path.c_str(), 16);
 
     SDL_Color currentColor = {255, 255, 255, 255};
     SDL_Color textColor = {0, 0, 0, 255};
