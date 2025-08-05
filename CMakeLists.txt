@@ -7,6 +7,8 @@ configure_file(
         COPYONLY
 )
 
+
+
 set(CMAKE_CXX_STANDARD 23)
 
 
@@ -21,3 +23,7 @@ target_link_libraries(stratego
 
 find_package(SDL2_ttf CONFIG REQUIRED)
 target_link_libraries(stratego PRIVATE $<IF:$<TARGET_EXISTS:SDL2_ttf::SDL2_ttf>,SDL2_ttf::SDL2_ttf,SDL2_ttf::SDL2_ttf-static>)
+
+target_compile_definitions(stratego PRIVATE
+        TEST_FILES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/fonts/"
+)
