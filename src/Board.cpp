@@ -49,6 +49,7 @@ bool Board::movePiece(int fromX, int fromY, int toX, int toY) {
     Piece* movingPiece = grid[fromX][fromY];
     Piece* targetPiece = grid[toX][toY];
 
+    // down to change
     if (targetPiece) {
         int result = movingPiece->attack(targetPiece);
         if (result == 1) {
