@@ -27,7 +27,9 @@ add_executable(stratego main.cpp
         src/pieces/flag.h
         src/pieces/bomb.h
         src/game/Player.h
-        src/game/Player.cpp)
+        src/game/Player.cpp
+        src/TextureManager/TextureManager.cpp
+        src/TextureManager/TextureManager.h)
 
 find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(stratego
