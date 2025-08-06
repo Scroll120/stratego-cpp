@@ -1,4 +1,3 @@
-
 #include "Board.h"
 #include <stdexcept>
 
@@ -15,6 +14,10 @@ bool Board::isObstacle(int x, int y) const {
         if (obs.x == x && obs.y == y) return true;
     }
     return false;
+}
+
+std::vector<Point> Board::getObstacles() {
+    return obstacles;
 }
 
 void Board::addObstacle(int x, int y) {

@@ -29,6 +29,7 @@ public:
     void placePiece(int x, int y, Piece* piece);
     void addObstacle(int x, int y);
     bool isObstacle(int x, int y) const;
+    std::vector<Point> getObstacles();
 };
 
 #endif //BOARD_H

@@ -2,10 +2,11 @@
 #define FLAG_H
 #include "piece.h"
 
-class flag : public Piece {
+class Flag : public Piece {
   public:
-  flag(){ rank = 12;};
+  Flag(){ rank = 12;};
   bool canMove() const override{ return false; };
+  bool canMoveDirection(int x, int y) const override {return false;};
   int attack(Piece *other) override { return -1; };
 };
 
