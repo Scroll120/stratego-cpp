@@ -9,6 +9,9 @@
 GameManager::GameManager() : player1(nullptr), player2(nullptr), currentPlayer(nullptr), board(nullptr),
                              isRunning(true), gameInitialized(false) {
     initializeGame();
+    board->placePiece(2, 2, new Flag()); // Red flag
+    board->placePiece(7, 7, new Bomb()); // Black bomb
+    board->placePiece(4, 4, new NormalPiece(5)); // Normal piece
 }
 
 GameManager::~GameManager() {
