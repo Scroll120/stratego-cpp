@@ -1,32 +1,32 @@
 #ifndef GAMEMANAGER_H
 #define GAMEMANAGER_H
+#include "../game/Board.h"
+#include "../game/Player.h"
 
 
 class GameManager {
 public:
     GameManager();
-
     ~GameManager();
 
     bool checkWin();
-
     void updateGameState();
-
     void switchPlayer();
+    bool validateMove(int fromX, int fromY, int toX, int toY);
+    bool attemptMove(int fromX, int fromY, int toX, int toY);
 
-    // doesn't exist yet
-    // Player* currentPlayer;
-    // Board* board;
+    Player* currentPlayer;
+    Board* board;
     bool isRunning;
 
 private:
-    // doesn't exist yet
-    // Player* player1;
-    // Player* player2;
+    Player* player1;
+    Player* player2;
+    bool gameInitialized;
 
     void initializeGame();
-
-    bool validateMove(/* move parameters */);
+    void setupPiecesForPlayer(Player* player, bool isPlayer1);
+    void setupBoard();
 };
 
 
