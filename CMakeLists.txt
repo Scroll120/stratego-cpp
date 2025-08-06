@@ -16,7 +16,9 @@ add_executable(stratego main.cpp
         src/GameController/GameController.cpp
         src/GameController/GameController.h
         src/GameManager/GameManager.cpp
-        src/GameManager/GameManager.h)
+        src/GameManager/GameManager.h
+        src/Board.cpp
+        src/Board.h)
 
 find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(stratego

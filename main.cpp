@@ -1,6 +1,7 @@
 #include <iostream>
 #include <memory>
 #include <SDL.h>
+#include <string>
 #include <vector>
 #include <SDL2/SDL_ttf.h>
 
