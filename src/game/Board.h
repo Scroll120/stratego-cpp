@@ -2,8 +2,8 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+#include "../pieces/piece.h"
 #include <vector>
-#include "pieces/piece.h"
 
 struct Point {
     int x;

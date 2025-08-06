@@ -7,7 +7,7 @@ public:
   Bomb() { rank = 11;};
   bool canMove() const override{ return false; };
   int attack(Piece *other) override {return -999;};
-  bool Bomb::canMoveDirection(int deltaX, int deltaY) const override {
+  bool canMoveDirection(int deltaX, int deltaY) const override {
     return false;
   }
 };

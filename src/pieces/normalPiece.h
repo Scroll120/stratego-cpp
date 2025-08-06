@@ -9,7 +9,7 @@ public:
   NormalPiece(int Rank){this->rank = Rank;};
   bool canMove() const override{ return true; };
   int attack(Piece* other) override{return rank - other->getRank();};
-  bool NormalPiece::canMoveDirection(int x, int y) const override {
+  bool canMoveDirection(int x, int y) const override {
     return (abs(x) == 1 && y == 0) || (abs(y) == 1 && x == 0);
   }
 };

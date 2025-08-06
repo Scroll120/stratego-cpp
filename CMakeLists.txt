@@ -17,8 +17,17 @@ add_executable(stratego main.cpp
         src/GameController/GameController.h
         src/GameManager/GameManager.cpp
         src/GameManager/GameManager.h
-        src/Board.cpp
-        src/Board.h)
+        src/game/Board.cpp
+        src/game/Board.h
+        src/pieces/piece.h
+        src/pieces/spy.h
+        src/pieces/scout.h
+        src/pieces/normalPiece.h
+        src/pieces/miner.h
+        src/pieces/flag.h
+        src/pieces/bomb.h
+        src/game/Player.h
+        src/game/Player.cpp)
 
 find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(stratego
