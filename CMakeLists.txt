@@ -12,7 +12,9 @@ configure_file(
 set(CMAKE_CXX_STANDARD 23)
 
 
-add_executable(stratego main.cpp)
+add_executable(stratego main.cpp
+        src/Board.cpp
+        src/Board.h)
 
 find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(stratego
