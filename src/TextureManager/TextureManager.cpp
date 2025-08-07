@@ -1,6 +1,7 @@
 #include "TextureManager.h"
 #include <SDL_image.h>
 #include <iostream>
+#include <vector>
 
 TextureManager::TextureManager(SDL_Renderer* renderer) : renderer(renderer) {}
 

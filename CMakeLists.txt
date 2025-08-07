@@ -44,3 +44,6 @@ target_link_libraries(stratego PRIVATE $<IF:$<TARGET_EXISTS:SDL2_ttf::SDL2_ttf>,
 target_compile_definitions(stratego PRIVATE
         TEST_FILES_PATH="${CMAKE_CURRENT_SOURCE_DIR}/fonts/"
 )
+
+find_package(SDL2_image CONFIG REQUIRED)
+target_link_libraries(stratego PRIVATE $<IF:$<TARGET_EXISTS:SDL2_image::SDL2_image>,SDL2_image::SDL2_image,SDL2_image::SDL2_image-static>)
