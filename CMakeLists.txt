@@ -1,16 +1,13 @@
 cmake_minimum_required(VERSION 3.31)
 project(stratego)
 
+set(CMAKE_CXX_STANDARD 23)
+
 configure_file(
         ${CMAKE_SOURCE_DIR}/fonts/arial.ttf
         ${CMAKE_BINARY_DIR}/fonts/arial.ttf
         COPYONLY
 )
-
-
-
-set(CMAKE_CXX_STANDARD 23)
-
 
 add_executable(stratego main.cpp
         src/GameController/GameController.cpp
