@@ -28,6 +28,7 @@ add_executable(stratego main.cpp
         src/TextureManager/TextureManager.cpp
         src/TextureManager/TextureManager.h
 )
+file(COPY ${CMAKE_SOURCE_DIR}/textures DESTINATION ${CMAKE_BINARY_DIR})
 
 find_package(SDL2 CONFIG REQUIRED)
 target_link_libraries(stratego
