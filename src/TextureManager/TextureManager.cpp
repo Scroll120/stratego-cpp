@@ -9,23 +9,29 @@ TextureManager::~TextureManager() {
 }
 
 void TextureManager::loadTextures() {
-    const std::vector<std::pair<std::string, std::string>> assetList = {
-        {"board",      "assets/board.png"},
+    int imgFlags = IMG_INIT_PNG | IMG_INIT_JPG;
+    if (!(IMG_Init(imgFlags) & imgFlags)) {
+        std::cerr << "[TextureManager] IMG_Init failed: " << IMG_GetError() << "\n";
+        return;
+    }
 
-        {"scout_red",  "assets/pieces/red/scout.png"},
-        {"scout_blue", "assets/pieces/blue/scout.png"},
-        {"miner_red",  "assets/pieces/red/miner.png"},
-        {"miner_blue", "assets/pieces/blue/miner.png"},
-        {"bomb_red",   "assets/pieces/red/bomb.png"},
-        {"bomb_blue",  "assets/pieces/blue/bomb.png"},
-        {"flag_red",   "assets/pieces/red/flag.png"},
-        {"flag_blue",  "assets/pieces/blue/flag.png"},
+    const std::vector<std::pair<std::string, std::string>> assetList = {
+        {"board",      "textures/DungeonMapDoodle.png"},
+        {"scout_red",  "textures/scout.jpeg"},
+        {"scout_blue", "textures/scout.jpeg"},
+        {"miner_red",  "textures/miner.jpeg"},
+        {"miner_blue", "textures/miner.jpeg"},
+        {"bomb_red",   "textures/bomb.jpeg"},
+        {"bomb_blue",  "textures/bomb.jpeg"},
+        {"flag_red",   "textures/flag.jpeg"},
+        {"flag_blue",  "textures/flag.jpeg"},
     };
 
     for (const auto& [key, path] : assetList) {
         SDL_Surface* surface = IMG_Load(path.c_str());
         if (!surface) {
-            std::cerr << "[TextureManager] Failed to load " << path << ": " << IMG_GetError() << "\n";
+            std::cerr << "[TextureManager] Failed to load " << path
+                      << " for key '" << key << "': " << IMG_GetError() << "\n";
             continue;
         }
 
@@ -33,11 +39,13 @@ void TextureManager::loadTextures() {
         SDL_FreeSurface(surface);
 
         if (!texture) {
-            std::cerr << "[TextureManager] Failed to create texture for " << key << ": " << SDL_GetError() << "\n";
+            std::cerr << "[TextureManager] Failed to create texture for key '"
+                      << key << "': " << SDL_GetError() << "\n";
             continue;
         }
 
         textures[key] = texture;
+        std::cout << "[TextureManager] Loaded texture: " << key << " from " << path << "\n";
     }
 }
 
