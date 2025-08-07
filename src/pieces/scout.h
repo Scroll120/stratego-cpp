@@ -2,9 +2,9 @@
 #define SCOUT_H
 #include "piece.h"
 
-class scout : public Piece {
+class Scout : public Piece {
 public:
-  scout() { rank = 2;};
+  Scout() { rank = 2;};
   bool canMove() const override { return true; };
   int attack(Piece *other) override{ return rank - other->getRank();};
   bool canMoveDirection(int x, int y) const override {
