@@ -11,12 +11,18 @@ public:
 
   int getRank() const { return rank; }
   bool getIsRevealed() const { return isRevealed; }
+  void setIsRevealed(bool revealed) {
+    isRevealed = revealed;
+  }
   bool getIsDragged() const { return isDragged; }
 
   void reveal() { isRevealed = true; }
   void setDragged(bool dragged) { isDragged = dragged; }
+  void setOwnerId(int id) { ownerId = id; }
+  virtual int getOwnerId() const { return ownerId; }
 
 protected:
+  int ownerId = -1;
   int rank = 0;
   bool isRevealed = false;
   bool isDragged = false;

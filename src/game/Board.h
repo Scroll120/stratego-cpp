@@ -14,6 +14,14 @@ struct Point {
     }
 };
 
+struct MoveResult {
+    bool success;
+    Piece* attackerDead = nullptr;
+    Piece* defenderDead = nullptr;
+    int toX;
+    int toY;
+};
+
 class Board {
 private:
     Piece* grid[10][10];
@@ -21,8 +29,9 @@ private:
 
 public:
     Board();
+  bool isPathClear(int fromX, int fromY, int toX, int toY);
 
-    bool movePiece(int fromX, int fromY, int toX, int toY);
+    MoveResult movePiece(int fromX, int fromY, int toX, int toY);
     Piece* getPiece(int x, int y);
     bool isMoveValid(int fromX, int fromY, int toX, int toY);
 

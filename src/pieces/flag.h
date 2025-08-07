@@ -7,9 +7,7 @@ class Flag : public Piece {
   Flag(){ rank = 12;};
   bool canMove() const override{ return false; };
   bool canMoveDirection(int x, int y) const override {return false;};
-  int attack(Piece *other) override { return -1; };
+  int attack(Piece *other) override { return false; };
 };
-
-
 
 #endif //FLAG_H
