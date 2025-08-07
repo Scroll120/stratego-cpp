@@ -63,7 +63,8 @@ void TextureManager::loadTextures() {
     for (const auto& [key, path] : assetList) {
         SDL_Surface* surface = IMG_Load(path.c_str());
         if (!surface) {
-            std::cerr << "[TextureManager] Failed to load " << path << ": " << IMG_GetError() << "\n";
+            std::cerr << "[TextureManager] Failed to load " << path
+                      << " for key '" << key << "': " << IMG_GetError() << "\n";
             continue;
         }
 
@@ -71,12 +72,14 @@ void TextureManager::loadTextures() {
         SDL_FreeSurface(surface);
 
         if (!texture) {
-            std::cerr << "[TextureManager] Failed to create texture for " << key << ": " << SDL_GetError() << "\n";
+            std::cerr << "[TextureManager] Failed to create texture for key '"
+                      << key << "': " << SDL_GetError() << "\n";
             continue;
         }
 
         textures[key] = texture;
         std::cout << "[TextureManager] Loaded texture: " << key << "\n"<< std::endl << std::flush;;
+
     }
     std::cout << "[TextureManager] Loaded " << textures.size() << " textures total.\n"<< std::endl << std::flush;;
 }
