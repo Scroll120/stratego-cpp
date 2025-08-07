@@ -178,8 +178,8 @@ void GameController::render() {
         renderText(winMsg, 10, 10, white);  // Draw text at top-left instead of sidebar
     } else {
         int playerId = static_cast<int>(gameManager->currentPlayer->getId());
-        std::string turnText = (playerId == 0) ? "Red's Turn" : "Blue's Turn";
-        renderText(turnText, 10, 10, white);
+        std::string turnText = (playerId == 1) ? "Red's Turn" : "Blue's Turn";
+        renderText(turnText, 600, 10, white);
     }
 
     SDL_RenderPresent(renderer);
